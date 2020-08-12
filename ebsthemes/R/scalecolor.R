@@ -3,11 +3,12 @@
 #' @details ebs colors
 #' @examples
 #'\donttest{
-#'(ggplot(iris) +geom_point(aes(x = Sepal.Length, y = Sepal.Width, color= Species)) +scale_color_manual(values = pal_ebs) + ebs_black())
+#'(ggplot(iris) +geom_point(aes(x = Sepal.Length,
+#'y = Sepal.Width, color= Species)) +scale_color_manual(values = pal_ebs) + ebs_black())
 #' }
 #' @export
 #http://www.color-hex.com/color-palette/22646
-pal_ebs <- c("#F1F8E9", "#AED581",  "#689F38",	"#33691E")
+pal_ebs <- c("#ffbaba", "#ff7b7b",  "#ff5252",	"#a70000")
 
 
 #' @title colors

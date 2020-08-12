@@ -2,7 +2,7 @@
 
 export(ebs_black)
 export(ebs_white)
-export(ebsgreen)
+export(ebsred)
 export(heightDetails.titleGrob)
 export(installIfAbsentAndLoad)
 export(margin)

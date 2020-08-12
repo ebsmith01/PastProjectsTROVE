@@ -16,7 +16,8 @@ ebs colors
 }
 \examples{
 \donttest{
-(ggplot(iris) +geom_point(aes(x = Sepal.Length, y = Sepal.Width, color= Species)) +scale_color_manual(values = pal_ebs) + ebs_black())
+(ggplot(iris) +geom_point(aes(x = Sepal.Length,
+y = Sepal.Width, color= Species)) +scale_color_manual(values = pal_ebs) + ebs_black())
 }
 }
 \keyword{datasets}

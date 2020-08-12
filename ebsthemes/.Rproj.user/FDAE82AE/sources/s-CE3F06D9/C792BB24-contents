@@ -15,6 +15,7 @@ library(readxl)
 library(dplyr)
 library(dlookr)
 library(d3heatmap)
+library(ebsThemes)
 library(DT)
 library(ggplot2)
 library(stringr)
@@ -28,18 +29,19 @@ rm(list=ls())
 
 
 ####################Specify linking fields###########
-LINK <- c('cyl')
+LINK <- c('INDEX')
 
 
 
-dataset1 <-  (mtcars)
+dataset1 <-  read.csv('insurance.csv')
 if(nrow(dataset1) > 5000){
     first_dataset <- dataset1 %>% sample_n(5000)
 } else {
     (first_dataset <- dataset1)
 }
 
-dataset2 <-  (mtcars)
+dataset2 <-  read.csv('insurance.csv')
+# 
 if(nrow(dataset2) > 5000){
     second_dataset <- dataset2 %>% sample_n(5000)
 } else {
@@ -50,7 +52,7 @@ cbPalette <- c('#8B0000',  "grey80")
 
 
 
-num_both <- merge(dataset1 ,dataset2, by=LINK, suffixes = c('.#1', '.#2'))
+num_both <- merge(dataset1 %>% select_if(is.numeric) ,dataset2 %>% select_if(is.numeric), by=LINK, suffixes = c('.#1', '.#2'))
 num_both<- num_both[, !duplicated(colnames(num_both))]
 
 cordata <-
@@ -80,9 +82,9 @@ ui <- navbarPage(' EBS ',
                               ,selectInput('y', 'Data Type', choices= c('Numeric', 'Character'),
                                            selected ='Numeric')),
                           div(style="display: inline-block;vertical-align:top; width: 300px;"
-                              ,selectInput('lc', 'Linking Fields', choices= names(first_dataset),
+                              ,selectInput('lc', 'Linking Fields', choices= names(dataset1),
                                            multiple = TRUE,
-                                           selected = names(first_dataset)[1:2])),
+                                           selected = names(dataset1)[1:2])),
                           fluidRow(
                               dataTableOutput('fulldata'))),
 
@@ -94,10 +96,10 @@ ui <- navbarPage(' EBS ',
                  tabPanel('Variable Distribution',
                           div(style="display: inline-block;vertical-align:top; width: 200px;",
                               selectInput('aa1', 'Numeric Variable',colnames(dataset1),
-                                          selected = "cyl", multiple = TRUE)),
+                                          selected = "AGE", multiple = TRUE)),
                           div(style="display: inline-block;vertical-align:top; width: 200px;",
                               selectInput('ab1', 'Character Variable '
-                                          , colnames(dataset1), selected = 'cyl', multiple = TRUE)),
+                                          , colnames(dataset1), selected = 'EDUCATION', multiple = TRUE)),
                           fluidRow(
                               plotOutput('density')),
                           fluidRow(
