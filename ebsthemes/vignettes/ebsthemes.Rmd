@@ -47,7 +47,7 @@ q + ebs_white() #this is a demo of the ebs_white theme
 
 # these are simple examples that just show what ebs_black and ebs_white look like.
 ```
-When doing group by color, you can add in the custom ebs color scale like so, there is a palette for continuous groups and also one for discrete grouping. If you just want the standard ebs green in only one color, specify the fill(color for geom_point) in the geom.
+When doing group by color, you can add in the custom ebs color scale like so, there is a palette for continuous groups and also one for discrete grouping. If you just want the standard ebs red in only one color, specify the fill(color for geom_point) in the geom.
 ```{r fig.align='center'}
 head(iris)
 
@@ -63,16 +63,16 @@ ggplot(iris) +
   scale_color_discrete_ebs() # use this color palette if you wnat to color code a discrete varible
 
 ggplot(iris) + 
-  geom_bar(aes(x = Sepal.Length), fill= ebsgreen) +
-  ebs_black() # notice the fill color is set to ebs green within the geom, this makes the bars the standard ebs green
+  geom_bar(aes(x = Sepal.Length), fill= ebsred) +
+  ebs_black() # notice the fill color is set to ebs red within the geom, this makes the bars the standard ebs red
 
 ggplot(iris) +
-  geom_boxplot(aes(x = Sepal.Length,y= Sepal.Width), fill= ebsgreen, color = "#fafafa") +
+  geom_boxplot(aes(x = Sepal.Length,y= Sepal.Width), fill= ebsred, color = "#fafafa") +
   ebs_black() # for boxplots, you should specify the outline color and not worry about messing with the fill color
 
 ggplot(iris) +
-  geom_point(aes(x = Sepal.Length,y= Sepal.Width), color= ebsgreen) +
-  ebs_black() #Note for point, you specify the color not the fill as ebs green
+  geom_point(aes(x = Sepal.Length,y= Sepal.Width), color= ebsred) +
+  ebs_black() #Note for point, you specify the color not the fill as ebs red
 
 # these examples show what the theme looks like with the custom colors. 
 

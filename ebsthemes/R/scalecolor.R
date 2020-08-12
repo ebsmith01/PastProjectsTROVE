@@ -54,12 +54,12 @@ scale_color_continuous_ebs <- function(){
   ))
 }
 
-#' @title ebs green
+#' @title ebs red
 #' @details ebs colors
 #' @examples
 #'\donttest{
-#' (ggplot(iris) +geom_bar(aes(x = Sepal.Length), fill = ebsgreen) + ebs_black())
+#' (ggplot(iris) +geom_bar(aes(x = Sepal.Length), fill = #8B0000) + ebs_black())
 #'}
 #'@export
 
- ebsgreen <- '#8BC34A'
+ ebsred <- '#8B0000'
