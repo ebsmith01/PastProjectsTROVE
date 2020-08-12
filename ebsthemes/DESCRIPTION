@@ -1,0 +1,31 @@
+Package: ebsThemes
+Title: formating standarization
+Version: 0.9
+Authors@R: 
+    person(given = "Evin",
+           family = "Smith",
+           role = c("aut", "cre"),
+           email = "evin.baker@gmail.com")
+Description: This was designed to standardized a variety of data visuilation elements for reporting purposes and to create reproducable research. 
+Depends:
+	dplyr,
+	kableExtra,
+	ggplot2,
+	gridExtra,
+	knitr,
+	lintr,
+	roxygen2
+Imports:
+	dplyr,
+	kableExtra,
+	ggplot2,
+	gridExtra,
+	knitr,
+	lintr,
+	roxygen2
+Suggests: rmarkdown
+VignetteBuilder: knitr
+License: Private
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2.9000

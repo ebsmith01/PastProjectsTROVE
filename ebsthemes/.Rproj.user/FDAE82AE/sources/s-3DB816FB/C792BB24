@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1597156556171.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C792BB24",
+    "lastKnownWriteTime" : 1597157236,
+    "last_content_update" : 1597157236741,
+    "path" : "C:/Users/EvinSmith-TROVE/Desktop/EvSmith/ebsapp/app.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "312,55",
+        "scrollLine" : "312"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

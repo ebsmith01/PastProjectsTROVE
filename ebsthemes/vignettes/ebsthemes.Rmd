@@ -1,0 +1,93 @@
+---
+title: "ebs themes documentation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ebs themes documentation}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+
+
+installIfAbsentAndLoad <- function(neededVector) {
+  for(thispackage in neededVector) {
+    if( ! require(thispackage, character.only = T) )
+    { install.packages(thispackage)}
+    require(thispackage, character.only = T)
+  }
+}
+options(repos="https://cran.rstudio.com" )
+needed <- c('dplyr', 'kableExtra','knitr','gridExtra','ggplot2', 'lintr', 'roxygen2')
+installIfAbsentAndLoad(needed)
+
+
+
+```
+
+## ebs custom ggthemes:
+
+In this package there is a ebs_black and ebs_white theme.
+```{r fig.align='center'}
+library(ebsThemes)
+head(ToothGrowth) # this is to show what the data looks like 
+p <- ggplot(ToothGrowth, aes(x=dose, y=len)) + 
+  geom_boxplot() 
+
+p + ebs_black() # this is the base case without colors specified 
+
+p + ebs_white() # this is the base case for the theme that is light
+
+q <- ggplot(ToothGrowth, aes(x=dose)) + 
+  geom_bar()
+
+q + ebs_black() # this is a demo of the ebs_black theme
+
+q + ebs_white() #this is a demo of the ebs_white theme
+
+# these are simple examples that just show what ebs_black and ebs_white look like.
+```
+When doing group by color, you can add in the custom ebs color scale like so, there is a palette for continuous groups and also one for discrete grouping. If you just want the standard ebs green in only one color, specify the fill(color for geom_point) in the geom.
+```{r fig.align='center'}
+head(iris)
+
+ggplot(iris) + 
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width, 
+                              color = Sepal.Width)) +
+  ebs_black() +
+  scale_color_continuous_ebs() # this is what it looks like when you add in colors and what you color code is a continuous number
+
+ggplot(iris) +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  ebs_black() + 
+  scale_color_discrete_ebs() # use this color palette if you wnat to color code a discrete varible
+
+ggplot(iris) + 
+  geom_bar(aes(x = Sepal.Length), fill= ebsgreen) +
+  ebs_black() # notice the fill color is set to ebs green within the geom, this makes the bars the standard ebs green
+
+ggplot(iris) +
+  geom_boxplot(aes(x = Sepal.Length,y= Sepal.Width), fill= ebsgreen, color = "#fafafa") +
+  ebs_black() # for boxplots, you should specify the outline color and not worry about messing with the fill color
+
+ggplot(iris) +
+  geom_point(aes(x = Sepal.Length,y= Sepal.Width), color= ebsgreen) +
+  ebs_black() #Note for point, you specify the color not the fill as ebs green
+
+# these examples show what the theme looks like with the custom colors. 
+
+```
+
+
+
+## Custom wrap tables
+
+
+
+```{r fig.align='center'}
+
+(table_dark(mtcars[1:10])) 
+(table_light(mtcars[1:10]))
+(table_pdf(mtcars[1:10]))
+```
+
